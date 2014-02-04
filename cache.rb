@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 
 class Cache
-    def initialize expiration_delay
-        @expiration_delay = expiration_delay
+    def initialize seconds=0, minutes=0, hours=0, days=0
+        @expiration_delay = seconds + minutes * 60 + hours * 60 * 60 + days * 24 * 60 * 60
         @entries = Hash.new
     end
 
