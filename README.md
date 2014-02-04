@@ -25,10 +25,12 @@ while the data must be accessible;
 # Sample code:
 
 ```ruby
-cache = Cache.new 60 # data will be cached for one minute (60 seconds)
+require './cache'
+
+cache = Cache.new seconds=30, minutes=1
 
 cache[:foo] = 'bar' # store the value 'bar' with the key :foo
-cache[:foo] # retrieve it (don't if you've waited 60 seconds)
+cache[:foo] # retrieve it (or nil if you've waited for at least 1 minute and 30 seconds)
 ```
 
 # Notes:
